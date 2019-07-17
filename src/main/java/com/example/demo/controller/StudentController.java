@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.controller;
 
 import com.example.demo.domain.Student;
 import com.example.demo.dto.StudentDto;
@@ -44,7 +44,5 @@ public class StudentController
     {
            return studentService.getStudentById(id);
     }
-
-
 
 }
