@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.CourseDto;
+import com.example.demo.response.CourseListResponse;
 import com.example.demo.response.CourseResponse;
 import com.example.demo.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +38,15 @@ public class CourseController {
         return new ResponseEntity<>(
                 CourseResponse.builder()
                         .courseDto(courseService.get(courseId))
+                        .build(),
+                HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<CourseListResponse> getAllCourses(){
+        return new ResponseEntity<>(
+                CourseListResponse.builder()
+                        .courses(courseService.getAll())
                         .build(),
                 HttpStatus.OK);
     }
